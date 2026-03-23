@@ -3,40 +3,14 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
-import base64
 
-# 폰트 로딩 함수
-def load_font(font_path):
-    with open(font_path, "rb") as f:
-        font_data = f.read()
-    return base64.b64encode(font_data).decode()
-
-# 폰트 파일 경로
-font_regular = "/workspaces/0323/fonts/NanumGothic-Regular.ttf"
-font_bold = "/workspaces/0323/fonts/NanumGothic-Bold.ttf"
-font_extrabold = "/workspaces/0323/fonts/NanumGothic-ExtraBold.ttf"
-
-# CSS 스타일 적용
-st.markdown(f"""
+# CSS 스타일 적용 (Google Fonts 사용)
+st.markdown("""
 <style>
-@font-face {{
-    font-family: 'NanumGothic';
-    src: url(data:font/ttf;base64,{load_font(font_regular)}) format('truetype');
-    font-weight: normal;
-}}
-@font-face {{
-    font-family: 'NanumGothic';
-    src: url(data:font/ttf;base64,{load_font(font_bold)}) format('truetype');
-    font-weight: bold;
-}}
-@font-face {{
-    font-family: 'NanumGothic';
-    src: url(data:font/ttf;base64,{load_font(font_extrabold)}) format('truetype');
-    font-weight: 800;
-}}
-body {{
-    font-family: 'NanumGothic', sans-serif;
-}}
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+}
 </style>
 """, unsafe_allow_html=True)
 
